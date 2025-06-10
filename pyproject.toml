@@ -1,0 +1,45 @@
+[project]
+name = "mmdetection"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "boto3>=1.38.28",
+    "matplotlib>=3.10.3",
+    "opencv-python>=4.11.0.86",
+    "pycocotools>=2.0.10",
+    "tqdm>=4.67.1",
+    "torch==2.1.2+cu118",
+    "torchvision==0.16.2+cu118",
+    "torchaudio==2.1.2+cu118",
+    "xformers",
+    "triton==2.1.0",
+    "numpy<2.0",
+    "setuptools<81",
+    "kagglehub>=0.3.12",
+    "terminaltables>=3.1.10",
+    "shapely>=2.1.1",
+    "scipy>=1.15.3",
+]
+
+
+[tool.uv]
+environments = ["platform_machine == 'x86_64' and sys_platform == 'linux'"]
+
+
+[build-system]
+requires = ["setuptools", "wheel", "torch"]
+build-backend = "setuptools.build_meta"
+
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true
+
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu118" }
+torchvision = { index = "pytorch-cu118" }
+torchaudio = { index = "pytorch-cu118" }
